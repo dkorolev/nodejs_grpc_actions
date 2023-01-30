@@ -8,7 +8,8 @@ env:
   docker_password: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  clone:
+  do_it:
+    name: Build and push `docker/ubuntu_grpcurl`.
     runs-on: ubuntu-latest
     permissions:
       packages: write
