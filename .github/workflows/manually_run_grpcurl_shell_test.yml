@@ -27,4 +27,4 @@ jobs:
           name: code
           path: .
       - name: Run `sync_add/test.sh`
-        run: (cd sync_add; ./test.sh)
+        run: (cd sync_add; chmod +x test.sh; ./test.sh)
