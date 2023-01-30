@@ -1,4 +1,4 @@
 node_modules
 
-# NOTE(dkorolev): This file should generally not be checked in, but I like to keep test repos clean.
+# NOTE(dkorolev): This file should generally be checked in, but I like to keep test repos clean.
 package-lock.json
