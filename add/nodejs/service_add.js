@@ -1,5 +1,5 @@
 const grpc = require("@grpc/grpc-js");
-const spec = grpc.loadPackageDefinition(require("@grpc/proto-loader").loadSync('../add.proto'));
+const spec = grpc.loadPackageDefinition(require("@grpc/proto-loader").loadSync(__dirname + '/../add.proto'));
 
 const server = new grpc.Server();
 
