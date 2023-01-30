@@ -4,9 +4,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  clone_and_build_artefact:
+    name: Get the code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+      - name: Push artefact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code
+          path: .
   run_sync_add_test_sh:
+    name: Run the test'
     runs-on: ubuntu-latest
     container: "ghcr.io/${{ github.actor }}/ubuntu_grpcurl:latest"
+    needs: [clone_and_build_artefact]
     steps:
+      - name: pull artefact
+        uses: actions/download-artifact@v3
+        with:
+          name: code
+          path: .
       - name: Run `sync_add/test.sh`
         run: (cd sync_add; ./test.sh)
