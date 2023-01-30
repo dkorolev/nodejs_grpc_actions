@@ -1,0 +1,11 @@
+name: Manually run `sync_add/test.sh`, will fail due to no `grpcurl`.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_sync_add_test_sh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run `sync_add/test.sh`
+        run: (cd sync_add; ./test.sh)
