@@ -1,4 +1,4 @@
-name: Manually run `sync_add/test_within_js.sh`.'
+name: Manually run `sync_add/test_within_js.sh`.
 
 on:
   workflow_dispatch:
