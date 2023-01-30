@@ -17,7 +17,7 @@ jobs:
       - name: clone
         uses: actions/checkout@v3
       - name: docker build
-        run: (cd docker/ubuntu_grpcurl; docker build .)
+        run: (cd docker/ubuntu_grpcurl; docker build -t "ghcr.io/$docker_username/ubuntu_grpcurl:latest" .)
       - name: ghcr login
         run: echo "$docker_password" | docker login ghcr.io --username "$docker_username" --password-stdin
       - name: ghcr push
