@@ -12,3 +12,5 @@ RUN apt-get install -y golang
 RUN wget https://github.com/fullstorydev/grpcurl/archive/v1.5.1.tar.gz
 RUN tar -zxvf v1.5.1.tar.gz
 RUN (cd grpcurl-1.5.1/cmd/grpcurl/; go build && cp grpcurl /usr/local/bin)
+
+RUN apt-get install nodejs npm
