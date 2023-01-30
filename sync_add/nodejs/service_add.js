@@ -8,7 +8,7 @@ server.addService(
   {
     Add: (req, res) => {
       // `req.request.{a,b}` are of type `Long`, so `+` would just concatenate strings.
-      res(null, { c: req.request.b == '10' ? 43 : req.request.a.add(req.request.b) });
+      res(null, { c: req.request.a.add(req.request.b) });
     }
   });
 
