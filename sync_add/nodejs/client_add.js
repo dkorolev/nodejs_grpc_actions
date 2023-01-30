@@ -22,6 +22,7 @@ const main = async () =>  {
   }
   console.log(`Total: ${total}.`);
   console.log(`Test ${fail ? 'failed' : 'passed'}.`);
+  await new Promise(done => client.Kill({}, done));
 };
 
 main();
