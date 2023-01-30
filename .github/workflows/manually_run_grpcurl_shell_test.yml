@@ -6,6 +6,7 @@ on:
 jobs:
   run_sync_add_test_sh:
     runs-on: ubuntu-latest
+    container: "ghcr.io/${{ github.actor }}/ubuntu_grpcurl:latest"
     steps:
       - name: Run `sync_add/test.sh`
         run: (cd sync_add; ./test.sh)
