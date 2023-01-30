@@ -1,0 +1,22 @@
+name: Manually run `jq`
+
+on:
+  workflow_dispatch:
+    inputs:
+      json:
+        description: 'JSON'
+        type: string
+        required: true
+        default: '{"the_answer":42}'
+      key:
+        description: 'Key'
+        type: string
+        required: true
+        default: 'the_answer'
+
+jobs:
+  run_jq:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run `jq`
+        run: echo '${{ github.event.inputs.json }}' | jq -r .${{ github.event.inputs.key }}
