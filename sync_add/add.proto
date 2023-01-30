@@ -1,9 +1,12 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package test_add;
 
 service RPC {
   rpc Add (Req) returns (Res) {}
+  rpc Kill (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 }
 
 message Req {

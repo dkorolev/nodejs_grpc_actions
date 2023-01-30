@@ -5,7 +5,6 @@ retval=0
 [ -d nodejs/node_modules ] || (cd nodejs; npm i; echo)
 
 node nodejs/service_add.js &
-NODE_PID=$!
 sleep 0.5  # Just to be safe, TODO(dkorolev): Replace by a health check.
 
 for i in '1 2' '2 2' '2 3' '32 10' ; do
@@ -28,7 +27,8 @@ else
   echo "All tests passed."
 fi
 
-kill $NODE_PID
+grpcurl -plaintext -proto add.proto 0.0.0.0:5555 test_add.RPC/Kill >/dev/null
+
 wait
 
 exit $retval
