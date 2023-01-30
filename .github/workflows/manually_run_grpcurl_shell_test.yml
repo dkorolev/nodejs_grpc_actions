@@ -1,4 +1,4 @@
-name: Manually run `sync_adda/test.sh`.
+name: Manually run `sync_add/test.sh`.
 
 on:
   workflow_dispatch:
