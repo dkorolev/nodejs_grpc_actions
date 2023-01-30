@@ -1,0 +1,21 @@
+name: Build and push the `docker/ubuntu_grpcurl` container.
+
+on:
+  workflow_dispatch:
+
+env:
+  docker_username: ${{ github.actor }}
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone
+        uses: actions/checkout@v3
+      - name: docker build
+        run: (cd docker/ubuntu_grpcurl; docker build .)
+      - name: ghcr login
+        run: echo "$docker_password" | docker login ghcr.io --username "$docker_username" --password-stdin
+      - name: ghcr push
+        run: docker push "ghcr.io/$docker_username/ubuntu_grpcurl:latest"
